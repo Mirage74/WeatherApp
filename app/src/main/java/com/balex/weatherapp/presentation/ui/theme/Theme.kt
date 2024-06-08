@@ -1,4 +1,4 @@
-package com.balex.weatherapp.ui.theme
+package com.balex.weatherapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
