@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.parcelize)
+    id("io.gitlab.arturbosch.detekt") version "1.23.6"
 }
 
 android {
@@ -46,6 +47,12 @@ android {
         compose = true
         buildConfig = true
     }
+    detekt {
+        toolVersion = "1.23.6"
+        config.setFrom(file("config/detekt/detekt.yml"))
+        buildUponDefaultConfig = true
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
@@ -70,6 +77,7 @@ dependencies {
     implementation(libs.mvikotlin.main)
     implementation(libs.mvikotlin.core)
     implementation(libs.mvikotlin.coroutines)
+    implementation(libs.mvikotlin.logging)
 
     implementation(libs.decompose.core)
     implementation(libs.decompose.jetpack)
@@ -84,7 +92,7 @@ dependencies {
     implementation(libs.retorfit.core)
     implementation(libs.retorfit.gsonConverter)
     implementation(libs.icons)
-
+    detektPlugins(libs.detekt.formatting)
 
 
     testImplementation(libs.junit)
