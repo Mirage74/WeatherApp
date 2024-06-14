@@ -94,6 +94,7 @@ dependencies {
     implementation(libs.icons)
     detektPlugins(libs.detekt.formatting)
 
+    implementation(libs.logging.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

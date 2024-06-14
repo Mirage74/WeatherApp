@@ -2,6 +2,7 @@ package com.balex.weatherapp.data.network.api
 
 import com.balex.weatherapp.BuildConfig
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -11,11 +12,21 @@ object ApiFactory {
     private const val KEY_PARAM = "key"
     private const val BASE_URL = "https://api.weatherapi.com/v1/"
 
+
+    private val interceptor = initInterceptor()
+
+    private fun initInterceptor(): HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        return interceptor
+    }
+
     private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(interceptor)
         .addInterceptor { chain ->
             val originalRequest = chain.request()
             val newUrl = originalRequest
-                .url()
+                .url
                 .newBuilder()
                 .addQueryParameter(KEY_PARAM, BuildConfig.WEATHER_API_KEY)
                 .build()
