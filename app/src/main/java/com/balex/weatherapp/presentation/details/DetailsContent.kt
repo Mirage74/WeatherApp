@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material3.Card
@@ -44,8 +43,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
 import com.balex.weatherapp.R
 import com.balex.weatherapp.domain.entity.Forecast
 import com.balex.weatherapp.domain.entity.Weather
@@ -53,6 +50,8 @@ import com.balex.weatherapp.presentation.extentions.formattedFullDate
 import com.balex.weatherapp.presentation.extentions.formattedShortDayOfWeek
 import com.balex.weatherapp.presentation.extentions.tempToFormattedString
 import com.balex.weatherapp.presentation.ui.theme.CardGradients
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 
 
 @Composable
